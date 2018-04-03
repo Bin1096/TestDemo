@@ -29,6 +29,13 @@ public class MyVideoView extends VideoView {
         init();
     }
 
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
+        setMeasuredDimension(MeasureSpec.getSize(widthMeasureSpec), MeasureSpec.getSize(heightMeasureSpec));
+    }
+
     private void init(){
         mGestureDetector = new GestureDetector(getContext(), new GestureDetector.SimpleOnGestureListener(){
             @Override
